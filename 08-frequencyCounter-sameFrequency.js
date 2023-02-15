@@ -11,13 +11,24 @@
 // sameFrequency(22,222) // false
 
 function sameFrequency(num1, num2) {
+    num1 = `${num1}`;
+    num2 = `${num2}`;
+
     let frequency = {};
 
     if(num1.length !== num2.length) return false;
 
-    while (num1.length) {
+
         for(let i = 0; i < num1.length; i++) {
-            
+            frequency[num1[[i]]] ? frequency[num1[[i]]] += 1 : frequency[num1[[i]]] = 1;
         }
-    }
+        for (let i = 0; i < num2.length; i++) {
+            if(! frequency[num2[i]]) {
+                return false;
+            } else {
+                frequency[num2[i]] -= 1
+            }
+        }
+    return true;
 }
+sameFrequency(575, 755);
