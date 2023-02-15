@@ -6,17 +6,16 @@
 // areThereDuplicates(1, 2, 2) // true
 // areThereDuplicates('a', 'b', 'c', 'a') // true
 
+// via the frequency counter pattern
 // function areThereDuplicates(...args) {
 //     // dealing with arguments
-//     let argsArr = [...args];
 //     let checkDuplicateArr = [];
 //     let i = 0;
 
 //     // checking whether there are duplicates
-//     // via the frequency counter pattern
-//     while (i < argsArr.length) {
-//         if(! checkDuplicateArr.includes(argsArr[i])) {
-//             checkDuplicateArr.push(argsArr[i]);
+//     while (i < args.length) {
+//         if(! checkDuplicateArr.includes(args[i])) {
+//             checkDuplicateArr.push(args[i]);
 //             i++;
 //         } else {
 //             return true;
@@ -26,18 +25,20 @@
 //     return false;
 // }
 
-function areThereDuplicates(...args) {
-    let argsArr = [...args];
-    let i = 0;
+// via the multiple pointers pattern
+// function areThereDuplicates(...args) {
+//     let i = 0;
+//     let j = 1;
 
-    for (let j = 1; j < argsArr.length; j++) {
-        if ( argsArr[i] !== argsArr[j]) {
-            i++;
-            argsArr[i] = argsArr[j]
-        } else {
-            return true;
-        }
-    }
+//     while (i < args.length - 1) {
+//         if(args[i] === args[j]) return true;
 
-    return false;
-}
+//         if (j === args.length - 1) {
+//             i++;
+//             j = i + 1;
+//         }
+//     }
+//     return false;
+// }
+
+// via set
