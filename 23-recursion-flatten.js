@@ -4,18 +4,36 @@
 //     return arr.flatMap(arr => arr);
 // }
 
+// function flatten(array) {
+//     let flatArr = [];
+
+//     function flattenHelper(arr) {
+//         if (arr.length === 0) return flatArr;
+//         if (Array.isArray(arr[0])) {
+//             return flattenHelper(arr.flat());
+//         } else {
+//             flatArr.push(arr[0]);
+//             return flattenHelper(arr.slice(1));
+//         }
+//     }
+//     flattenHelper(array);
+//     return flatArr;
+// }
+
 function flatten(array) {
     let flatArr = [];
 
     function flattenHelper(arr) {
         if (arr.length === 0) return flatArr;
-        if (Array.isArray(arr[0])) {
-            // flatArr.push(arr[0].flat());
-            return flattenHelper(arr.flat());
-        } else {
-            flatArr.push(arr[0]);
-            return flattenHelper(arr.slice(1));
-        }
+        arr.forEach(value => {
+
+            if (Array.isArray(value)){
+                return flattenHelper(value[0]);
+            } else {
+                flatArr.push(value);
+                return flattenHelper(arr.slice(1))
+            }
+        })
     }
     flattenHelper(array);
     return flatArr;
