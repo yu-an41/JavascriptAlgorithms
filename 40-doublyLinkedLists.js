@@ -100,6 +100,21 @@ class DoublyLinkedList {
         }
         return false;
     }
+
+    insert(index, val) {
+        if (index < 0 || index > this.length) return false;
+        if (index === 0) return !!this.unshift(val);
+        if (index === this.length) return !!this.push(val);
+
+        let newNode = new Node(val);
+        let prevNode = this.get(index - 1);
+        let nextNode = prevNode.next;
+        
+        prevNode.next = newNode, newNode.prev = prevNode;
+        newNode.next = nextNode, nextNode.prev = newNode;
+        this.length++;
+        return true;
+    }
 }
 
 // get(index) {
@@ -122,5 +137,21 @@ class DoublyLinkedList {
 //             counter--;
 //             if (counter === index) return current;
 //         }
+// }
 
+// insert(index, val) {
+//     if (index < 0 || index >= this.length) return false;
+//     if (index === 0) return !!this.unshift(val);
+//     if (index === this.length) return !!this.push(val);
+
+//     let prevNode = this.get(index - 1);
+//     let nextNode = prevNode.next;
+//     let newNode = new Node(val);
+    
+//     prevNode.next = newNode;
+//     newNode.next = nextNode;
+//     nextNode.prev = newNode;
+//     newNode.prev = prevNode;
+//     this.length++;
+//     return true;
 // }
