@@ -115,6 +115,18 @@ class DoublyLinkedList {
         this.length++;
         return true;
     }
+
+    remove (index) {
+        if (index < 0 || index >= this.length) return undefined;
+        if (index === 0) return this.shift();
+        if (index === this.length - 1) return this.pop();
+
+        let removeNode = this.get(index);
+        removeNode.prev.next = removeNode.next, removeNode.next.prev = removeNode.prev;
+        removeNode.prev  = null, removeNode.next = null;
+        this.length--;
+        return removeNode;
+    }
 }
 
 // get(index) {
@@ -154,4 +166,20 @@ class DoublyLinkedList {
 //     newNode.prev = prevNode;
 //     this.length++;
 //     return true;
+// }
+
+// remove (index) {
+//     if (index < 0 || index >= this.length) return undefined;
+//     if (index === 0) return this.shift();
+//     if (index === this.length - 1) return this.pop();
+
+//     let foundNode = this.get(index);
+//     let prevNode = foundNode.prev;
+//     let nextNode = foundNode.next;
+
+//     prevNode.next = nextNode, nextNode.prev = prevNode;
+//     foundNode.prev = null, foundNode.next = null;
+
+//     this.length--;
+//     return foundNode;
 // }
