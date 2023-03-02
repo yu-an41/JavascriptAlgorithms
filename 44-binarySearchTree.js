@@ -65,6 +65,10 @@ class BinarySearchTree {
         }
         return data;
     }
+
+    DFSPreOrder() {
+        
+    }
 }
 const tree = new BinarySearchTree();
 tree.root = new Node(10);
