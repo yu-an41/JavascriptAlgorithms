@@ -67,7 +67,7 @@ class BinarySearchTree {
     }
 
     DFSPreOrder() {
-        
+        tbc
     }
 }
 const tree = new BinarySearchTree();
