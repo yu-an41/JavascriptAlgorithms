@@ -67,7 +67,11 @@ class BinarySearchTree {
     }
 
     DFSPreOrder() {
-        // revursively
+        
+    }
+
+    DFSPostOrder() {
+        
     }
 }
 const tree = new BinarySearchTree();
